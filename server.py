@@ -1,7 +1,5 @@
 from flask import Flask, render_template, request, redirect
 import csv
-
-# my App
 app = Flask(__name__)
 print(__name__)
 
@@ -36,8 +34,8 @@ def submit_form():
             data = request.form.to_dict()
             write_to_csv(data)
             return redirect('/thankyou.html')
-    except:
-        return('failed to save to DataBase')
+        except:
+            return('failed to save to DataBase')
     else:
         return 'something went wrong'
 
